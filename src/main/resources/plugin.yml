@@ -1,0 +1,6 @@
+name: LobbyAPI
+version: '${project.version}'
+main: lobbyapi.lobbyapi.API.LobbyAPI
+api-version: 1.19
+authors: [ Fredd_HD ]
+description: LobbyAPI
