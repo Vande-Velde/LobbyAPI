@@ -11,6 +11,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 public class MySQLInventory implements CommandExecutor {
+
+    // hier steht nix
+
     private ItemStack glass = ItemBuilder.createItem(" ", Material.GRAY_STAINED_GLASS_PANE, 1);
     private ItemStack connected = ItemBuilder.createItem("§e§lMySQL §aconnected", Material.EMERALD, 1);
     private ItemStack notconnected = ItemBuilder.createItem("§e§lMySQL §cnot connected", Material.REDSTONE, 1);
