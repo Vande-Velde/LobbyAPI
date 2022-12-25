@@ -29,13 +29,10 @@ public class StatsAPI {
         }
     }
 
-    public static Integer getKills(String uuid)
-    {
+    public static Integer getKills(String uuid){
         Integer i = Integer.valueOf(0);
-        if (playerExists(uuid))
-        {
-            try
-            {
+        if (playerExists(uuid)){
+            try {
                 ResultSet rs = MySQL.getResult("SELECT * FROM LobbyAPI WHERE UUID='" + uuid + "'");
                 if (rs.next()) {
                     Integer.valueOf(rs.getInt("KILLS"));

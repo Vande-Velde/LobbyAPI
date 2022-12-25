@@ -1,5 +1,6 @@
 package lobbyapi.lobbyapi.utils;
 
+import lobbyapi.lobbyapi.API.LobbyAPI;
 import lobbyapi.lobbyapi.MySQL.MySQL;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -14,9 +15,9 @@ public class MySQLInventory implements CommandExecutor {
 
     // hier steht nix
 
-    private ItemStack glass = ItemBuilder.createItem(" ", Material.GRAY_STAINED_GLASS_PANE, 1);
-    private ItemStack connected = ItemBuilder.createItem("§e§lMySQL §aconnected", Material.EMERALD, 1);
-    private ItemStack notconnected = ItemBuilder.createItem("§e§lMySQL §cnot connected", Material.REDSTONE, 1);
+    private final ItemStack glass = ItemBuilder.createItem(" ", Material.GRAY_STAINED_GLASS_PANE, 1);
+    private final ItemStack connected = ItemBuilder.createItem("§e§lMySQL §aconnected", Material.EMERALD, 1);
+    private final ItemStack notconnected = ItemBuilder.createItem("§e§lMySQL §cnot connected", Material.REDSTONE, 1);
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -55,7 +56,7 @@ public class MySQLInventory implements CommandExecutor {
 
                 if (MySQL.isConnected()) {
                     inv.setItem(13, connected);
-                } else if (!MySQL.isConnected()) {
+                } else {
                     inv.setItem(13, notconnected);
                 }
 

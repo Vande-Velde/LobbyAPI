@@ -3,18 +3,23 @@ package lobbyapi.lobbyapi.MySQL;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 
-public class MySQL {
+public class MySQL implements Listener {
     public static String username;
     public static String password;
     public static String database;
     public static String host;
     public static String port;
     public static Connection con;
+
 
     public MySQL(String user, String pass, String host2, String dB) {}
 
@@ -137,4 +142,6 @@ public class MySQL {
         host = cfg.getString("host");
         port = cfg.getString("port");
     }
+
+
 }

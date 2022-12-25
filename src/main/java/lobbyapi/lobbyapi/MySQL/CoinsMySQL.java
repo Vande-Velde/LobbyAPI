@@ -25,11 +25,11 @@ public class CoinsMySQL {
             try
             {
                 con = DriverManager.getConnection("jdbc:mysql://" + host + ":" + port + "/" + database + "?user=" + username + "&password=" + password + "&autoReconnect=true");
-                Bukkit.getConsoleSender().sendMessage("CoinsMySQL verbunden");
+                Bukkit.getConsoleSender().sendMessage("LobbyAPI verbunden");
             }
             catch (SQLException e)
             {
-                Bukkit.getConsoleSender().sendMessage("Eine verbindung zur CoinsMySQL konnte nicht hergestellt werden!");
+                Bukkit.getConsoleSender().sendMessage("Eine verbindung zur LobbyAPI konnte nicht hergestellt werden!");
             }
         }
     }
@@ -40,7 +40,7 @@ public class CoinsMySQL {
             try
             {
                 con.close();
-                Bukkit.getConsoleSender().sendMessage("CoinsMySQL verbindung getrent");
+                Bukkit.getConsoleSender().sendMessage("LobbyAPI verbindung getrent");
             }
             catch (SQLException e)
             {
@@ -59,8 +59,8 @@ public class CoinsMySQL {
         if (isConnected()) {
             try
             {
-                con.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS CoinsAPI (UUID VARCHAR(100), COINS int)");
-                Bukkit.getConsoleSender().sendMessage("CoinsMySQL Table created");
+                con.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS LobbyAPI (UUID VARCHAR(100), COINS int, KILLS int, DEATHS int , WIN int , LOSE int , BEDS int)");
+                Bukkit.getConsoleSender().sendMessage("LobbyAPI Table created");
             }
             catch (SQLException e)
             {
@@ -101,7 +101,7 @@ public class CoinsMySQL {
 
     public static File getMySQLFile()
     {
-        return new File("plugins/CoinsAPI", "CoinsMySQL.yml");
+        return new File("plugins/LobbyAPI", "LobbyAPI.yml");
     }
 
     public static FileConfiguration getMySQLFileConfiguration()

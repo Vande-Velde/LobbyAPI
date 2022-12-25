@@ -9,7 +9,7 @@ public class CoinsAPI {
     {
         try
         {
-            ResultSet rs = MySQL.getResult("SELECT * FROM CoinsAPI WHERE UUID='" + uuid + "'");
+            ResultSet rs = MySQL.getResult("SELECT * FROM LobbyAPI WHERE UUID='" + uuid + "'");
             if (rs.next()) {
                 return rs.getString("UUID") != null;
             }
@@ -25,7 +25,7 @@ public class CoinsAPI {
     public static void createPlayer(String uuid)
     {
         if (!playerExists(uuid)) {
-            MySQL.update("INSERT INTO CoinsAPI (UUID, Coins) VALUES ('" + uuid + "', 0);");
+            MySQL.update("INSERT INTO LobbyAPI (UUID, Coins) VALUES ('" + uuid + "', 0);");
         }
     }
 
@@ -33,7 +33,7 @@ public class CoinsAPI {
         Integer i = Integer.valueOf(0);
         if (playerExists(uuid)) {
             try {
-                ResultSet rs = MySQL.getResult("SELECT * FROM CoinsAPI WHERE UUID='" + uuid + "'");
+                ResultSet rs = MySQL.getResult("SELECT * FROM LobbyAPI WHERE UUID='" + uuid + "'");
                 if(rs.next()) {
                     Integer.valueOf(rs.getInt("COINS"));
                 }
@@ -50,7 +50,7 @@ public class CoinsAPI {
 
     public static void setCoins(String uuid, Integer coins) {
         if(playerExists(uuid)) {
-            MySQL.update("UPDATE CoinsAPI SET COINS='" + coins + "' WHERE UUID='" + uuid + "'");
+            MySQL.update("UPDATE LobbyAPI SET COINS='" + coins + "' WHERE UUID='" + uuid + "'");
         } else {
             createPlayer(uuid);
             setCoins(uuid, coins);

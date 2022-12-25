@@ -1,12 +1,13 @@
 package lobbyapi.lobbyapi.API;
 
 import lobbyapi.lobbyapi.MySQL.CoinsMySQL;
+import lobbyapi.lobbyapi.utils.MySQLInventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class LobbyAPI extends JavaPlugin {
+public class LobbyAPI extends JavaPlugin {
 
+    public static String Prefix = "§e§lLobbyAPI §8» ";
     public static LobbyAPI INSTANCE;
-    public static LobbyAPI plugin;
 
     @Override
     public void onEnable() {
@@ -15,6 +16,8 @@ public final class LobbyAPI extends JavaPlugin {
         CoinsMySQL.readMySQL();
         CoinsMySQL.connect();
         CoinsMySQL.createTable();
+
+        getCommand("checkmysql").setExecutor(new MySQLInventory());
     }
 
     @Override
@@ -24,8 +27,5 @@ public final class LobbyAPI extends JavaPlugin {
 
     public LobbyAPI() {
         INSTANCE = this;
-    }
-    public static LobbyAPI getPlugin() {
-        return plugin;
     }
 }
